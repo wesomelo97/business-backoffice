@@ -6,12 +6,34 @@ import {
   CalendarDays,
 } from "lucide-react";
 
+import { NavLink } from "react-router-dom";
+
 const menuItems = [
-  { label: "Dashboard", icon: LayoutDashboard },
-  { label: "Pedidos", icon: ShoppingBag },
-  { label: "Produtos & Estoque", icon: Package },
-  { label: "Clientes", icon: Users },
-  { label: "Reservas", icon: CalendarDays },
+  {
+    label: "Dashboard",
+    icon: LayoutDashboard,
+    path: "/dashboard",
+  },
+  {
+    label: "Pedidos",
+    icon: ShoppingBag,
+    path: "/pedidos",
+  },
+  {
+    label: "Produtos & Estoque",
+    icon: Package,
+    path: "/estoque",
+  },
+  {
+    label: "Clientes",
+    icon: Users,
+    path: "/clientes",
+  },
+  {
+    label: "Reservas",
+    icon: CalendarDays,
+    path: "/reservas",
+  },
 ];
 
 function Sidebar() {
@@ -23,14 +45,17 @@ function Sidebar() {
       </div>
 
       <nav className="sidebar-nav">
-        {menuItems.map(({ label, icon: Icon }, index) => (
-          <button
+        {menuItems.map(({ label, icon: Icon, path }) => (
+          <NavLink
             key={label}
-            className={`sidebar-link ${index === 0 ? "active" : ""}`}
+            to={path}
+            className={({ isActive }) =>
+              `sidebar-link ${isActive ? "active" : ""}`
+            }
           >
             <Icon size={20} />
             <span>{label}</span>
-          </button>
+          </NavLink>
         ))}
       </nav>
     </aside>
