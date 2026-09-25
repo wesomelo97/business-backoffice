@@ -9,6 +9,8 @@ import {
 
 import seedData from "../../projects/caderno-dvinho/seedData";
 
+import { getStoredData } from "../../services/storage";
+
 import { Link } from "react-router-dom";
 
 const formatCurrency = (value) =>
@@ -21,12 +23,40 @@ const statusClass = (status) =>
   status.toLowerCase().replaceAll(" ", "-").replaceAll("ç", "c");
 
 function DashboardPage() {
-  const {
-    metrics,
-    recentOrders,
-    lowStockProducts,
-    upcomingReservations,
-  } = seedData;
+        const PROJECT_ID = "caderno-dvinho";
+
+        const storedOrders = getStoredData(
+          PROJECT_ID,
+          "orders",
+          seedData.orders
+        );
+
+        const storedProducts = getStoredData(
+          PROJECT_ID,
+          "products",
+          seedData.products
+        );
+
+        const recentOrders = storedOrders.slice(0, 5);
+
+        const lowStockProducts = storedProducts
+          .filter((product) => product.stock <= product.minimum)
+          .sort((a, b) => {
+            const ratioA = a.stock / a.minimum;
+            const ratioB = b.stock / b.minimum;
+
+            return ratioA - ratioB;
+          })
+          .slice(0, 5);
+
+        const lowStockCount = storedProducts.filter(
+          (product) => product.stock <= product.minimum
+        ).length;
+
+        const {
+          metrics,
+          upcomingReservations,
+      } = seedData;
 
   return (
     <div className="dashboard-page">
@@ -65,7 +95,7 @@ function DashboardPage() {
 
         <MetricCard
           title="Estoque baixo"
-          value={metrics.lowStock}
+          value={lowStockCount}
           description="Produtos exigem atenção"
           icon={TriangleAlert}
           variant="brown"

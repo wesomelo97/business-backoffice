@@ -1204,3 +1204,187 @@ button {
   color: var(--muted);
   font-size: 10px !important;
 }
+
+/* INVENTÁRIO */
+
+.inventory-filters {
+  display: flex;
+  gap: 10px;
+}
+
+.inventory-filters select {
+  min-width: 150px;
+  height: 44px;
+
+  padding: 0 12px;
+
+  border: 1px solid var(--border);
+  border-radius: 10px;
+
+  outline: none;
+
+  background: #fff;
+  color: var(--text);
+
+  cursor: pointer;
+}
+
+.stock-status {
+  display: inline-flex;
+
+  padding: 5px 9px;
+
+  border-radius: 999px;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.stock-status-normal {
+  color: #3f593d;
+  background: #e5eee1;
+}
+
+.stock-status-baixo {
+  color: #775727;
+  background: #f4ead2;
+}
+
+.stock-status-critico {
+  color: #8a3b3b;
+  background: #f4dddd;
+}
+
+.inventory-current-stock {
+  margin: 22px 0;
+
+  padding: 20px;
+
+  border-radius: 12px;
+
+  background: #f4ede4;
+}
+
+.inventory-current-stock span,
+.inventory-current-stock strong,
+.inventory-current-stock small {
+  display: block;
+}
+
+.inventory-current-stock span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.inventory-current-stock strong {
+  margin: 4px 0;
+
+  font-family: "Cormorant Garamond", serif;
+  color: var(--primary);
+
+  font-size: 34px;
+}
+
+.inventory-current-stock small {
+  color: var(--muted);
+}
+
+.movement-type {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
+
+  margin-top: 12px;
+}
+
+.movement-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  padding: 10px;
+
+  border: 1px solid var(--border);
+  border-radius: 9px;
+
+  background: #fff;
+  color: var(--text);
+
+  cursor: pointer;
+}
+
+.movement-button.active {
+  border-color: var(--primary);
+
+  background: #f1e4e7;
+  color: var(--primary);
+
+  font-weight: 600;
+}
+
+.movement-field {
+  display: block;
+
+  margin-top: 16px;
+}
+
+.movement-field > span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: var(--muted);
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.movement-field input {
+  width: 100%;
+
+  padding: 10px 12px;
+
+  border: 1px solid var(--border);
+  border-radius: 9px;
+
+  outline: none;
+
+  background: #fff;
+}
+
+.movement-field input:focus {
+  border-color: var(--primary);
+}
+
+.primary-button {
+  width: 100%;
+
+  margin-top: 18px;
+  padding: 12px 16px;
+
+  border-radius: 9px;
+
+  background: var(--primary);
+  color: #fff;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.primary-button:hover {
+  background: var(--primary-dark);
+}
+
+@media (max-width: 800px) {
+  .inventory-filters {
+    flex-direction: column;
+  }
+
+  .inventory-filters select {
+    width: 100%;
+  }
+}
