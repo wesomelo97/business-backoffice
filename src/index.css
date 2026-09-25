@@ -1388,3 +1388,156 @@ button {
     width: 100%;
   }
 }
+
+/* CLIENTES */
+
+.customer-profile {
+  display: inline-flex;
+
+  padding: 5px 9px;
+
+  border-radius: 999px;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.profile-descoberta {
+  color: #775727;
+  background: #f4ead2;
+}
+
+.profile-repertorio {
+  color: #485d73;
+  background: #e4ebf2;
+}
+
+.profile-entusiasta {
+  color: var(--primary);
+  background: #f1e1e5;
+}
+
+.last-purchase {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.customer-profile-select {
+  width: 100%;
+
+  margin-top: 10px;
+  padding: 10px 12px;
+
+  border: 1px solid var(--border);
+  border-radius: 9px;
+
+  outline: none;
+
+  background: #fff;
+  color: var(--text);
+
+  cursor: pointer;
+}
+
+.customer-profile-select:focus {
+  border-color: var(--primary);
+}
+
+.customer-orders {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 12px;
+}
+
+.customer-order-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 14px;
+
+  padding: 12px 0;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.customer-order-item:last-child {
+  border-bottom: 0;
+}
+
+.customer-order-item div strong,
+.customer-order-item div span {
+  display: block;
+}
+
+.customer-order-item div strong {
+  font-size: 12px;
+}
+
+.customer-order-item div span {
+  margin-top: 3px;
+
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.customer-order-item > strong {
+  color: var(--primary);
+  font-size: 12px;
+}
+
+/* RESERVAS */
+
+.reservation-status {
+  display: inline-flex;
+
+  padding: 5px 9px;
+
+  border-radius: 999px;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.reservation-status-confirmada {
+  color: #3f593d;
+  background: #e5eee1;
+}
+
+.reservation-status-pendente {
+  color: #775727;
+  background: #f4ead2;
+}
+
+.reservation-status-concluida {
+  color: #485d73;
+  background: #e4ebf2;
+}
+
+.reservation-status-cancelada {
+  color: #8a3b3b;
+  background: #f4dddd;
+}
+
+.reservation-notes {
+  margin: 8px 0 0 !important;
+
+  padding: 12px;
+
+  border-radius: 8px;
+
+  background: #f4ede4;
+
+  color: var(--text) !important;
+  line-height: 1.5;
+}
+
+.dashboard-empty {
+  padding: 30px 10px;
+
+  color: var(--muted);
+  text-align: center;
+
+  font-size: 12px;
+}
