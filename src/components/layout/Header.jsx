@@ -1,9 +1,12 @@
 import {
-  Search,
-  Bell,
+  RefreshCcw,
 } from "lucide-react";
 
 import { useLocation } from "react-router-dom";
+
+import { resetProjectData } from "../../services/storage";
+
+const PROJECT_ID = "caderno-dvinho";
 
 const pageInfo = {
   "/dashboard": {
@@ -39,6 +42,18 @@ function Header() {
     pageInfo[location.pathname] ||
     pageInfo["/dashboard"];
 
+  function handleResetDemo() {
+    const confirmed = window.confirm(
+      "Restaurar todos os dados da demonstração? As alterações feitas em pedidos, estoque, clientes e reservas serão apagadas."
+    );
+
+    if (!confirmed) return;
+
+    resetProjectData(PROJECT_ID);
+
+    window.location.reload();
+  }
+
   return (
     <header className="topbar">
       <div>
@@ -47,20 +62,16 @@ function Header() {
       </div>
 
       <div className="topbar-actions">
-        <div className="search">
-          <Search size={18} />
-
-          <input
-            type="text"
-            placeholder="Buscar..."
-          />
-        </div>
-
         <button
-          className="icon-button"
-          title="Notificações"
+          className="reset-demo-button"
+          onClick={handleResetDemo}
+          title="Restaurar dados iniciais"
         >
-          <Bell size={20} />
+          <RefreshCcw size={16} />
+
+          <span>
+            Restaurar demonstração
+          </span>
         </button>
 
         <div className="operator">

@@ -36,3 +36,21 @@ export function removeStoredData(projectId, resource) {
   const key = buildKey(projectId, resource);
   localStorage.removeItem(key);
 }
+
+export function resetProjectData(projectId) {
+  const prefix = `${STORAGE_PREFIX}:${projectId}:`;
+
+  const keysToRemove = [];
+
+  for (let index = 0; index < localStorage.length; index++) {
+    const key = localStorage.key(index);
+
+    if (key && key.startsWith(prefix)) {
+      keysToRemove.push(key);
+    }
+  }
+
+  keysToRemove.forEach((key) => {
+    localStorage.removeItem(key);
+  });
+}
